@@ -15,4 +15,5 @@ Some visuals, representing the different calculation on the dataset can be found
 5. https://olegleyz.github.io/boston_housing.html
 6. https://statisticsbyjim.com/regression/interpret-r-squared-regression/#:~:text=R%2Dsquared%20is%20a%20goodness,the%20independent%20variables%20explain%20collectively.&text=For%20instance%2C%20small%20R%2Dsquared,values%20are%20not%20necessarily%20good!
 7. https://medium.com/@aqureshi/multiple-linear-regression-analysis-of-boston-housing-dataset-e066d714a7d5
+8. https://www.kaggle.com/kunalc101/boston-housing-linear-and-polynomial-regression
 

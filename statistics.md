@@ -133,9 +133,64 @@ def random_forest_regression(X, y, print_text='Random forest regression'):
     print_metrics(y_test, reg.predict(X_test), print_text)
 ```
 
-It can be concluded that the straight regression line is unable to capture the patterns in the dataset which is an example to underfitting. To overcome this, there is a need to increase the complexity of the model. This was done by converting the original features into their higher order polynomial terms by using the PolynomialFeatures class provided by scikit-learn. Then the training was conducted by using Linear Regression. The model was trained with 75/25 proportion scale.
+In our multiple linear regression model we have stated MEDV as our dependent variable as we ran the regression on this variable and listed all of the rest of the variables as independent variables. 
+
+It can be concluded that the straight regression line is unable to capture the patterns in the dataset which is an example to underfitting. To overcome this, there is a need to increase the complexity of the model. This was done by converting the original features into their higher order polynomial terms by using the PolynomialFeatures class provided by scikit-learn. The degree value 2 was used for the Polynomial regression model. 
+
+Then the training was conducted by using Linear Regression. The model was trained with 75/25 proportion scale.
 
 According to the different types of regression models used for the task, the R-squared gets the value around 0.60. This seems fine as the metrics not being 100% does not mean that a chosen model is not good. 
 
 Looking at LSTAT and RM scatter plots it can also be observed that a considerable part of observations fall near the regression line. 
 
+Additionally, various histograms/calculations have been created by using two - Linear and Polynomial regression models. The X and Y variables chosen for this purpose are as follows:
+
+```
+X = pd.DataFrame(np.c_[bostondf['LSTAT'], bostondf['RM'], bostondf['CRIM'], bostondf['NOX']], columns=['LSTAT', 'RM', 'CRIM', 'NOX'])
+Y = bostondf['MEDV']
+```
+
+As it is seen from above, the independent variables - LSTAT, RM, CRIM, NOX have been selected whereas the dependent variable is set as MEDV.
+
+As per caluclations, Linear Regression coefficients were as follows:
+
+```
+[-0.46290196  4.01282465 -0.13577538 -6.56634794]
+```
+
+Linear Regression intercept was measured to be ```6.847532889913637```.
+
+The scatter plot referring to the comparison between Actual and Predicted Prices has also been made. For detailed visualisation information, run main.py and see the histograms.
+
+The linear model performance for training set is as follows:
+```
+RMSE is 4.5122008815998
+R2 score is 0.6622288062124915
+```
+
+The linear model performance for testing set was calculated as follows:
+```
+RMSE is 4.269074132447602
+R2 score is 0.7221279943668804
+MAPE:  17.727933394977068
+```
+When it comes to the polynomial model performance, the results are as follows:
+
+The polynomial model performance for the training set: 
+
+```
+RMSE of training set is 3.376917129876445
+R2 score of training set is 0.8108150594225829
+```
+
+The polynomial model performance for the test set:
+
+```
+RMSE of test set is 3.0809788628451096
+R2 score of test set is 0.8552712401864067
+MAPE:  13.152137934083274
+```
+
+As it is seen, the polynomial model seems to perform better than linear one taking into account the performance metrics of both models.
+
+RMSE (Root Mean Squared Error) and MAPE (Mean Absolute Percentage Error) metrics of Polynomial Regression model is lower than the Linear Regression one. Overall, MAPE numbers seem to be less than 20% for both models which means good but not excellent. Regarding the R squared values both models have the score over 60% which is not so bad. 
